@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "791200259608",
+    "firebase_url": "https://tuntikirjanpito-f24f1.firebaseio.com",
+    "project_id": "tuntikirjanpito-f24f1",
+    "storage_bucket": "tuntikirjanpito-f24f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791200259608:android:242ad4c0a58c97e9d36d6d",
+        "android_client_info": {
+          "package_name": "com.example.tuntikirjanpito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "791200259608-n1pt5d94quk5i9juggljji7c47ujvjtv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkZXjysUuu780A9Z6cAmdu6tjlfKDjszc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "791200259608-n1pt5d94quk5i9juggljji7c47ujvjtv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
