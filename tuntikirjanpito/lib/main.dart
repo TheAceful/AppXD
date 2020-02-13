@@ -6,7 +6,7 @@ import "src/projects.dart";
 import "src/notifications.dart";
 import "src/calendar.dart";
 
-void main() { 
+void main() {
   runApp(
     new MaterialApp(
       theme: ThemeData(fontFamily: "Mansalva"),
@@ -18,7 +18,6 @@ void main() {
         "/CreateProject": (BuildContext context) => new CreateProject(),
         "/NotificationsPage": (BuildContext context) => new NotificationsPage(),
         "/LoginPage": (BuildContext context) => new LoginPage(),
-        
       }
     )
   );

@@ -22,25 +22,25 @@ class NotificationsPage extends StatelessWidget {
          child: new Column(
            children: <Widget>[
              RaisedButton(
-               child: Text("write peenus"),
+               child: Text("write data"),
                onPressed: (){
                  writeData();
                }
                ),
                RaisedButton(
-               child: Text("read peenus"),
+               child: Text("read data"),
                onPressed: (){
                  readData();
                }
                ),
                RaisedButton(
-               child: Text("update peenus"),
+               child: Text("update data"),
                onPressed: (){
                  updateData();
                }
                ),
                RaisedButton(
-               child: Text("delete peenus"),
+               child: Text("delete data"),
                onPressed: (){
                  deleteData();
                }
