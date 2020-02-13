@@ -22,9 +22,27 @@ class NotificationsPage extends StatelessWidget {
          child: new Column(
            children: <Widget>[
              RaisedButton(
-               child: Text("biggi peenus"),
+               child: Text("write peenus"),
                onPressed: (){
                  writeData();
+               }
+               ),
+               RaisedButton(
+               child: Text("read peenus"),
+               onPressed: (){
+                 readData();
+               }
+               ),
+               RaisedButton(
+               child: Text("update peenus"),
+               onPressed: (){
+                 updateData();
+               }
+               ),
+               RaisedButton(
+               child: Text("delete peenus"),
+               onPressed: (){
+                 deleteData();
                }
                )
            ],
@@ -38,7 +56,26 @@ class NotificationsPage extends StatelessWidget {
    {
       dbref.child("1").set({
         "id" : "ID1",
-        "data" : "This is a sample Data"
+        "data" : "This is a sample Data 1"
     });
-   }
+  }
+
+  void readData()
+   {
+      dbref.once().then((DataSnapshot dataSnapShot) {
+        print(dataSnapShot.value);
+    });
+  }
+
+  void updateData()
+   {
+      dbref.child("1").update({
+        "data" : "This is updated info"
+    });
+  }
+
+  void deleteData()
+   {
+      dbref.child("1").remove();
+  }
 }

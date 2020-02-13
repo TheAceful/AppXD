@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tuntikirjanpito/src/app.dart';
-
+import 'package:firebase_database/firebase_database.dart';
 
 class CreateProject extends StatefulWidget{
 
@@ -11,6 +11,7 @@ class CreateProject extends StatefulWidget{
 
 class  CreateProjectState extends State <CreateProject> {
 final formKey = GlobalKey<FormState>();
+final dbref = FirebaseDatabase.instance.reference();
 var _textController = new TextEditingController();
 
  String name, people, description;
@@ -80,16 +81,16 @@ var _textController = new TextEditingController();
      );
    }
    
-   void _submit(){
-     if(formKey.currentState.validate()){
-     formKey.currentState.save();
+  void _submit(){
+    if(formKey.currentState.validate()){
+      formKey.currentState.save();
 
-     Navigator.of(context).pushNamed("/Projects");
-    
-    print(name);
-    print(description);
-    print(people);
-     
-     }
-   }
+      Navigator.of(context).pushNamed("/Projects");
+
+      dbref.child(name).set({
+          "description" : description,
+          "people" : people
+      });
+    }
+  }
 }
