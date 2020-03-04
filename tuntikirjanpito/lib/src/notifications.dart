@@ -7,7 +7,6 @@ class NotificationsPage extends StatelessWidget {
 
   final dbref = FirebaseDatabase.instance.reference();
 
-
      Widget build(context){
      return new Scaffold (
       backgroundColor: bgColor,
@@ -21,10 +20,22 @@ class NotificationsPage extends StatelessWidget {
        child: new Center(
          child: new Column(
            children: <Widget>[
-             RaisedButton(
-               child: Text("write data"),
+              RaisedButton(
+               child: Text("write student data"),
                onPressed: (){
-                 writeData();
+                 writeStudentData("3", "joku3@edu.xamk.fi", "salasana3");
+               }
+               ),
+              RaisedButton(
+               child: Text("write teacher data"),
+               onPressed: (){
+                 writeTeacherData("3", "teacher3@xamk.fi", "teacher3");
+               }
+               ),
+               RaisedButton(
+               child: Text("write project data"),
+               onPressed: (){
+                 writeProjectData("3", "3", "Projekti3");
                }
                ),
                RaisedButton(
@@ -52,30 +63,46 @@ class NotificationsPage extends StatelessWidget {
      );
    }
 
-   void writeData()
-   {
-      dbref.child("1").set({
-        "id" : "ID1",
-        "data" : "This is a sample Data 1"
+  void writeProjectData(projectId, creatorId, name)
+  {
+    dbref.child("Projects").child(projectId).set({
+      "creatorId" : creatorId,
+      "name" : name
+    });
+  }
+
+  void writeStudentData(userId, email, password)
+  {
+    dbref.child("Users").child("Students").child(userId).set({
+      "email" : email,
+      "password" : password
+    });
+  }
+
+  void writeTeacherData(userId, email, password)
+  {
+    dbref.child("Users").child("Teachers").child(userId).set({
+      "email" : email,
+      "password" : password
     });
   }
 
   void readData()
-   {
-      dbref.once().then((DataSnapshot dataSnapShot) {
-        print(dataSnapShot.value);
+  {
+    dbref.once().then((DataSnapshot dataSnapShot) {
+      print(dataSnapShot.value);
     });
   }
 
   void updateData()
-   {
-      dbref.child("1").update({
-        "data" : "This is updated info"
+  {
+    dbref.child("1").update({
+      "data" : "This is updated info"
     });
   }
 
   void deleteData()
-   {
-      dbref.child("1").remove();
+  {
+    dbref.child("1").remove();
   }
 }
